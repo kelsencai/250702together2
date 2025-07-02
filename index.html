@@ -21,88 +21,163 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: url('user_image_1.png') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
-            color: #333;
+            color: #222;
             line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* 深夜模式样式 */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #e0e0e0;
+        }
+
+        /* 深夜模式开关 */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: rgba(30, 30, 30, 0.9);
+            color: #e0e0e0;
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 24px 0 16px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            border-radius: 24px;
+            margin: 24px 16px 16px 16px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background: rgba(30, 30, 30, 0.85);
+            color: #e0e0e0;
         }
 
         .header h1 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
-        .header p {
+        body.dark-mode .header h1 {
+            color: #e0e0e0;
+        }
+
+        .header p, .wild-character {
             color: #666;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .header p, 
+        body.dark-mode .wild-character {
+            color: #b0b0b0;
         }
 
         .nav {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
+            background: rgba(255,255,255,0.8);
+            padding: 12px;
             display: flex;
             justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            overflow-x: auto;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            gap: 12px;
+            border-radius: 20px;
+            margin: 0 16px 24px 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .nav {
+            background: rgba(30, 30, 30, 0.8);
         }
 
         .nav button {
-            padding: 8px 12px;
+            padding: 10px 22px;
             border: none;
-            border-radius: 20px;
-            background: #667eea;
-            color: white;
+            border-radius: 18px;
+            background: #f5f5f7;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            white-space: nowrap;
-            min-width: 80px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
 
-        .nav button:hover {
-            background: #5a6fd8;
-            transform: translateY(-1px);
+        body.dark-mode .nav button {
+            background: #2a2a2a;
+            color: #e0e0e0;
         }
 
-        .nav button.active {
-            background: #4c63d2;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        .nav button.active, .nav button:hover {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .nav button.active, 
+        body.dark-mode .nav button:hover {
+            background: #3a3a3a;
         }
 
         .main-content {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 12px;
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.92);
+            border-radius: 22px;
+            padding: 28px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .section {
+            background: rgba(30, 30, 30, 0.92);
+            color: #e0e0e0;
         }
 
         .section h2 {
-            color: #333;
-            margin-bottom: 15px;
+            color: #222;
             font-size: 1.5rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 8px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .section h2 {
+            color: #e0e0e0;
+            border-bottom-color: #444;
         }
 
         /* 时间管理样式 */
@@ -113,21 +188,55 @@
 
         .login input {
             padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
             margin-right: 8px;
-            width: 180px;
+            background: #fafafa;
+            color: #222;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        body.dark-mode .login input {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        .login input:focus {
+            border: 1.5px solid #bdbdbd;
+        }
+
+        body.dark-mode .login input:focus {
+            border-color: #666;
         }
 
         .login button {
-            padding: 10px 20px;
+            padding: 10px 22px;
             border: none;
-            border-radius: 6px;
-            background: #667eea;
-            color: white;
-            font-size: 0.9rem;
+            border-radius: 14px;
+            background: #fff;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark-mode .login button {
+            background: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .login button:hover {
+            background: #f5f5f7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .login button:hover {
+            background: #4a4a4a;
         }
 
         .task-input {
@@ -139,24 +248,57 @@
 
         .task-input input, .task-input select {
             padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-right: 8px;
+            background: #fafafa;
+            color: #222;
+            outline: none;
+            transition: border 0.2s;
         }
 
-        .task-input input {
-            flex: 1;
-            min-width: 150px;
+        body.dark-mode .task-input input, 
+        body.dark-mode .task-input select {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        .task-input input:focus, .task-input select:focus {
+            border: 1.5px solid #bdbdbd;
+        }
+
+        body.dark-mode .task-input input:focus, 
+        body.dark-mode .task-input select:focus {
+            border-color: #666;
         }
 
         .task-input button {
-            padding: 10px 20px;
+            padding: 10px 22px;
             border: none;
-            border-radius: 6px;
-            background: #667eea;
-            color: white;
-            font-size: 0.9rem;
+            border-radius: 14px;
+            background: #fff;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark-mode .task-input button {
+            background: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .task-input button:hover {
+            background: #f5f5f7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .task-input button:hover {
+            background: #4a4a4a;
         }
 
         .task-list {
@@ -167,11 +309,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            padding: 14px;
+            background: #fff;
+            border-radius: 12px;
             margin-bottom: 8px;
-            border-left: 3px solid #667eea;
+            border-left: 3px solid #e0e0e0;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .task-item {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-left-color: #444;
         }
 
         .task-item.completed {
@@ -180,13 +330,16 @@
         }
 
         .task-item button {
-            background: #ff4757;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            padding: 6px 12px;
-            cursor: pointer;
-            font-size: 0.8rem;
+            background: #f5f5f7;
+            color: #222;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            box-shadow: none;
+        }
+
+        body.dark-mode .task-item button {
+            background: #3a3a3a;
+            color: #e0e0e0;
         }
 
         .filter {
@@ -195,14 +348,31 @@
         }
 
         .filter button {
-            padding: 8px 16px;
+            padding: 10px 22px;
             border: none;
-            border-radius: 6px;
-            background: #667eea;
-            color: white;
-            font-size: 0.8rem;
+            border-radius: 14px;
+            background: #fff;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
             margin: 0 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark-mode .filter button {
+            background: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .filter button:hover {
+            background: #f5f5f7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .filter button:hover {
+            background: #4a4a4a;
         }
 
         /* 投资工具样式 */
@@ -213,51 +383,67 @@
             margin-bottom: 15px;
         }
 
-        .investment-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
+        .investment-card, .sep-card, .value-investment {
+            background: #fff;
+            color: #222;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            padding: 22px 18px;
+            margin-bottom: 10px;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
 
-        .investment-card:hover {
-            transform: translateY(-3px);
+        body.dark-mode .investment-card, 
+        body.dark-mode .sep-card, 
+        body.dark-mode .value-investment {
+            background: #2a2a2a;
+            color: #e0e0e0;
         }
 
-        .investment-card h3 {
-            margin-bottom: 8px;
+        .investment-card:hover, .sep-card:hover, .value-investment:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+            transform: translateY(-2px);
+        }
+
+        .investment-card h3, .sep-card h3, .value-investment h3 {
+            color: #222;
             font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .investment-card h3, 
+        body.dark-mode .sep-card h3, 
+        body.dark-mode .value-investment h3 {
+            color: #e0e0e0;
         }
 
         .fear-greed {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
 
         .percentile {
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
 
         .ah-premium {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
 
         .sofr-analysis {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
 
         /* 价值投资样式 */
         .value-investment {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
             color: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 20px;
             text-align: center;
             margin-bottom: 15px;
+            box-shadow: 0 4px 20px rgba(255, 154, 158, 0.2);
         }
 
         .value-investment h3 {
@@ -309,28 +495,71 @@
 
         .input-group input {
             padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-right: 8px;
+            background: #fafafa;
+            color: #222;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        body.dark-mode .input-group input {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        .input-group input:focus {
+            border: 1.5px solid #bdbdbd;
+        }
+
+        body.dark-mode .input-group input:focus {
+            border-color: #666;
         }
 
         .analyze-btn {
-            padding: 12px 24px;
-            background: #667eea;
-            color: white;
+            padding: 10px 22px;
+            background: #fff;
+            color: #222;
             border: none;
-            border-radius: 6px;
+            border-radius: 14px;
             font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            width: 100%;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark-mode .analyze-btn {
+            background: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .analyze-btn:hover {
+            background: #f5f5f7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .analyze-btn:hover {
+            background: #4a4a4a;
         }
 
         .result {
             margin-top: 15px;
             padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 3px solid #667eea;
+            background: #fff;
+            border-radius: 10px;
+            border-left: 3px solid #e0e0e0;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .result {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-left-color: #444;
         }
 
         .risk-indicator {
@@ -354,12 +583,13 @@
         }
 
         .sep-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
             color: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 20px;
             text-align: center;
             transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(255, 154, 158, 0.2);
         }
 
         .sep-card:hover {
@@ -372,17 +602,18 @@
         }
 
         .fed-logo {
-            width: 50px;
-            height: 50px;
-            background: #1e3a8a;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
         }
 
         /* 豆豆三部曲样式 */
@@ -391,37 +622,86 @@
         }
 
         .book-section h3 {
-            color: #667eea;
+            color: #ff6b9d;
             margin-bottom: 10px;
             font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .quote {
-            margin: 10px 0;
-            padding: 12px 15px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            margin: 15px 0;
+            padding: 16px 18px;
+            background: #f5f5f7;
+            border-left: 4px solid #e0e0e0;
             font-style: italic;
             color: #555;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.9rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .quote {
+            background: #2a2a2a;
+            color: #b0b0b0;
+            border-left-color: #444;
+        }
+
+        .wild-quote {
+            margin: 18px 0;
+            padding: 18px 20px;
+            background: #f5f5f7;
+            color: #555;
+            border-radius: 16px;
+            font-style: italic;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .wild-quote {
+            background: #2a2a2a;
+            color: #b0b0b0;
+        }
+
+        .wild-quote::before {
+            content: "🌙";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
         }
 
         .tips {
-            background: #e3f2fd;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 10px;
+            background: #f5f5f7;
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 12px;
+            color: #444;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .tips {
+            background: #2a2a2a;
+            color: #b0b0b0;
         }
 
         .tips h4 {
-            color: #1976d2;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 600;
             margin-bottom: 8px;
-            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
-        .tips ul {
-            margin-left: 15px;
+        body.dark-mode .tips h4 {
+            color: #e0e0e0;
+        }
+
+        .tips ul, .tips p {
+            margin: 0;
         }
 
         .tips li {
@@ -431,34 +711,9 @@
 
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .task-input {
-                flex-direction: column;
-            }
-            
-            .sofr-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .investment-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .sep-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-content {
-                padding: 0 10px;
-            }
-            
-            .section {
-                padding: 15px;
-            }
+            .main-content { padding: 0 4px; }
+            .header, .nav, .section { margin: 8px; }
+            .section { padding: 14px 6px; }
         }
 
         .hidden {
@@ -471,7 +726,7 @@
             width: 20px;
             height: 20px;
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid #ff9a9e;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -483,14 +738,22 @@
     </style>
 </head>
 <body>
+    <!-- 深夜模式开关 -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="切换模式">
+        🌙
+    </button>
+    
     <div class="header">
-        <h1>投资工具合集</h1>
+        <h1>时刻提醒自己要低调</h1>
         <p>时间管理 · 投资分析 · 智慧阅读 · 经济预测</p>
+        <div class="wild-character">"在黑暗中寻找光明，在孤独中寻找温暖"</div>
     </div>
 
     <div class="nav">
         <button onclick="showSection('time')" class="active">⏰ 时间管理</button>
-        <button onclick="showSection('investment')">📊 投资工具</button>
+        <button onclick="showSection('investment')">📊 每天关注指标</button>
+        <button onclick="showSection('taco')">🌮 taco交易</button>
+        <button onclick="showSection('byd')">🚗 比亚迪观察</button>
         <button onclick="showSection('value')">💰 价值投资</button>
         <button onclick="showSection('sofr')">💵 SOFR分析</button>
         <button onclick="showSection('sep')">🏦 美联储SEP</button>
@@ -500,14 +763,17 @@
     <div class="main-content">
         <!-- 时间管理部分 -->
         <div id="time-section" class="section">
-            <h2>⏰ 时间管理</h2>
+            <h2>🌙 时间管理</h2>
+            <div class="wild-quote">
+                "时间是最公平的，每个人都是24小时。但如何让每一分钟都变得有意义，这需要智慧。"
+            </div>
             <div class="login">
-                <input type="text" id="usernameInput" placeholder="输入用户名">
-                <button onclick="login()">登录</button>
+                <input type="text" id="usernameInput" placeholder="输入你的名字">
+                <button onclick="login()">进入模式</button>
             </div>
             <div id="taskManager" style="display: none;">
                 <div class="task-input">
-                    <input type="text" id="taskInput" placeholder="输入新任务">
+                    <input type="text" id="taskInput" placeholder="今晚要完成的事情">
                     <select id="difficultyInput">
                         <option value="easy">简单</option>
                         <option value="medium">中等</option>
@@ -516,9 +782,9 @@
                     <button onclick="addTask()">添加任务</button>
                 </div>
                 <div class="filter">
-                    <button onclick="filterTasks('starred')">显示星标任务</button>
-                    <button onclick="filterTasks('uncompleted')">显示未完成任务</button>
-                    <button onclick="filterTasks('all')">显示所有任务</button>
+                    <button onclick="filterTasks('starred')">⭐ 重要任务</button>
+                    <button onclick="filterTasks('uncompleted')">🌙 待完成</button>
+                    <button onclick="filterTasks('all')">📋 全部任务</button>
                 </div>
                 <div id="taskLists"></div>
             </div>
@@ -526,77 +792,160 @@
 
         <!-- 投资工具部分 -->
         <div id="investment-section" class="section hidden">
-            <h2>📊 投资工具导航</h2>
+            <h2>🌙 每天关注指标</h2>
+            <div class="wild-quote">
+                "每天盯住核心指标，才能在市场波动中保持定力。"
+            </div>
             <div class="investment-grid">
-                <a href="https://funddb.cn/tool/fear" target="_blank" class="investment-card fear-greed">
-                    <h3>📈 A股恐惧贪婪指数</h3>
-                    <p>实时监控市场情绪，把握投资时机</p>
+                <a href="https://www.sse.com.cn/market/sseindex/indexlist/s/i000016/" target="_blank" class="investment-card fear-greed">
+                    <h3>🌙 中国vix</h3>
+                    <p>中国市场波动率指数</p>
                 </a>
-                <a href="https://funddb.cn/site/fed" target="_blank" class="investment-card percentile">
-                    <h3>📊 股债百分位</h3>
-                    <p>25%以下必须卖，75%以上大胆买</p>
+                <a href="https://www.jin10.com/cn/bond/" target="_blank" class="investment-card percentile">
+                    <h3>⭐ 中国股债收益比</h3>
+                    <p>衡量A股与国债收益性价比</p>
                 </a>
                 <a href="https://stockpage.10jqka.com.cn/HSAHP/" target="_blank" class="investment-card ah-premium">
-                    <h3>💹 AH股溢价指数</h3>
+                    <h3>🌊 AH溢价</h3>
                     <p>恒生AH股溢价指数实时监控</p>
                 </a>
                 <div class="investment-card sofr-analysis" onclick="showSection('sofr')">
-                    <h3>💰 SOFR分析工具</h3>
-                    <p>担保隔夜融资利率分析</p>
+                    <h3>💰 sofr是一切的根源。</h3>
+                    <p>全球流动性锚定指标</p>
                 </div>
             </div>
             <div class="tips">
-                <h4>💡 投资规则</h4>
-                <p><strong>股债百分位规则：</strong>25%以下必须卖，75%以上大胆买</p>
-                <p><strong>AH股溢价警戒线：</strong>128% - 超过此值需关注投资风险</p>
+                <h4>🌙 投资哲学</h4>
+                <p><strong>核心指标：</strong>波动率、股债收益比、AH溢价、SOFR</p>
+                <p><strong>小野提醒：</strong>每天盯住这些指标，少走弯路</p>
+            </div>
+        </div>
+
+        <!-- taco交易部分 -->
+        <div id="taco-section" class="section hidden">
+            <h2>🌮 小野的交易哲学</h2>
+            <div class="wild-quote">
+                "市场就像寂静的街道，看似平静，却暗流涌动。我们需要在黑暗中保持清醒，在混乱中寻找规律。"
+            </div>
+            <div class="tips">
+                <h4>🌙 交易指南</h4>
+                <ul>
+                    <li>川普喊话，就买悲观，5天后，买乐观。</li>
+                    <li>在情绪最极端的时候，往往是反转的开始</li>
+                    <li>保持内心的平静，不被外界噪音干扰</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <h4>🔗 相关链接</h4>
+                <a href="https://trump.chatpaper.top/" target="_blank">川普最新言论</a>
+            </div>
+        </div>
+
+        <!-- 比亚迪观察部分 -->
+        <div id="byd-section" class="section hidden">
+            <h2>🚗 中国制造绕不开比亚迪</h2>
+            <div class="wild-quote">
+                "比亚迪不仅仅是一家汽车公司，更是中国制造业的缩影。在新能源的浪潮中，它承载着中国制造的希望与梦想。"
+            </div>
+            <div class="tips">
+                <h4>🌙 2025年目标展望</h4>
+                <ul>
+                    <li><strong>海外目标：</strong>80万辆</li>
+                    <li><strong>国内目标：</strong>470万辆</li>
+                    <li><strong>总目标：</strong>550万辆</li>
+                </ul>
+            </div>
+            <div class="tips">
+                <h4>🔗 比亚迪数据</h4>
+                <p><a href="https://ngabbs.com/read.php?tid=44505298&rand=893" target="_blank">NGA论坛 - 比亚迪相关讨论</a></p>
+                <p><a href="https://www.xchuxing.com/article/154035" target="_blank">出行一客 - 比亚迪深度分析</a></p>
+            </div>
+        </div>
+
+        <!-- 快手观察部分 -->
+        <div id="kuaishou-section" class="section hidden">
+            <h2>📱 快手观察</h2>
+            <div class="wild-quote">
+                "快手，短视频与直播赛道的代表，见证中国互联网内容变革。"
+            </div>
+            <div class="tips">
+                <h4>🔗 快手数据</h4>
+                <p><a href="https://ir.kuaishou.com/" target="_blank">快手投资者关系</a></p>
+                <p><a href="https://www.eastmoney.com/" target="_blank">东方财富快手资讯</a></p>
+            </div>
+        </div>
+
+        <!-- B站观察部分 -->
+        <div id="bilibili-section" class="section hidden">
+            <h2>🎬 B站观察</h2>
+            <div class="wild-quote">
+                "B站，年轻人的文化社区，内容生态持续扩张。"
+            </div>
+            <div class="tips">
+                <h4>🔗 B站数据</h4>
+                <p><a href="https://ir.bilibili.com/" target="_blank">B站投资者关系</a></p>
+                <p><a href="https://www.eastmoney.com/" target="_blank">东方财富B站资讯</a></p>
+            </div>
+        </div>
+
+        <!-- 药明生物观察部分 -->
+        <div id="wuxi-section" class="section hidden">
+            <h2>🧬 药明生物观察</h2>
+            <div class="wild-quote">
+                "药明生物，全球领先的生物医药研发与生产服务平台。"
+            </div>
+            <div class="tips">
+                <h4>🔗 药明生物数据</h4>
+                <p><a href="https://www.wuxibiologics.com/" target="_blank">药明生物官网</a></p>
+                <p><a href="https://www.eastmoney.com/" target="_blank">东方财富药明生物资讯</a></p>
+            </div>
+        </div>
+
+        <!-- 泡泡玛特观察部分 -->
+        <div id="popmart-section" class="section hidden">
+            <h2>🎁 泡泡玛特观察</h2>
+            <div class="wild-quote">
+                "泡泡玛特，潮玩经济的引领者，IP与零售创新结合。"
+            </div>
+            <div class="tips">
+                <h4>🔗 泡泡玛特数据</h4>
+                <p><a href="https://www.popmart.com/" target="_blank">泡泡玛特官网</a></p>
+                <p><a href="https://www.eastmoney.com/" target="_blank">东方财富泡泡玛特资讯</a></p>
             </div>
         </div>
 
         <!-- 价值投资部分 -->
         <div id="value-section" class="section hidden">
-            <h2>💰 价值投资平台</h2>
+            <h2>🌙 判断净利润的4种变化是根本的根本的根本</h2>
+            <div class="wild-quote">
+                "投资的本质就是看企业净利润的变化。"
+            </div>
             <div class="value-investment">
-                <h3>智慧投资 创造价值</h3>
-                <p>深入研究，理性决策，长期持有，复利增长</p>
-                <div class="value-features">
-                    <div class="value-feature">
-                        <h4>📈 市场分析</h4>
-                        <p>实时市场数据和趋势分析</p>
-                    </div>
-                    <div class="value-feature">
-                        <h4>📋 基本面分析</h4>
-                        <p>公司财务和经营状况评估</p>
-                    </div>
-                    <div class="value-feature">
-                        <h4>💰 估值分析</h4>
-                        <p>多种估值模型和指标</p>
-                    </div>
-                    <div class="value-feature">
-                        <h4>📁 投资组合</h4>
-                        <p>资产配置和风险管理</p>
-                    </div>
-                    <div class="value-feature">
-                        <h4>📚 学习资源</h4>
-                        <p>投资知识和技能培训</p>
-                    </div>
-                </div>
+                <h3>🌙 净利润变化核心法则</h3>
+                <ul style="text-align:left;max-width:500px;margin:0 auto;font-size:1.1em;line-height:2;">
+                    <li>1，不增长：7倍PE买，12倍卖。</li>
+                    <li>2，5%永续增长，14倍买，25倍卖。</li>
+                </ul>
             </div>
         </div>
 
         <!-- SOFR分析部分 -->
         <div id="sofr-section" class="section hidden">
-            <h2>💵 SOFR分析工具</h2>
+            <h2>🌙 利率分析</h2>
+            <div class="wild-quote">
+                "利率就像市场的心跳，虽然看不见，但能感受到它的节奏。理解利率，就是理解市场的脉搏。"
+            </div>
             <div class="sofr-form">
                 <div class="input-group">
-                    <label for="sofr">SOFR（担保隔夜融资利率，%）：</label>
+                    <label for="sofr">🌙 SOFR（担保隔夜融资利率，%）：</label>
                     <input type="number" id="sofr" step="0.01" placeholder="例如：4.28">
                 </div>
                 <div class="input-group">
-                    <label for="fed-rate">联邦有效利率（%）：</label>
+                    <label for="fed-rate">⭐ 联邦有效利率（%）：</label>
                     <input type="number" id="fed-rate" step="0.01" placeholder="例如：4.33">
                 </div>
             </div>
-            <button class="analyze-btn" onclick="analyze()">分析</button>
+            <button class="analyze-btn" onclick="analyze()">🌙 分析</button>
             <div class="result" id="result"></div>
             <div class="tips">
                 <h4>🔗 相关链接</h4>
@@ -607,10 +956,13 @@
 
         <!-- 美联储SEP部分 -->
         <div id="sep-section" class="section hidden">
-            <h2>🏦 美联储经济预测摘要 (SEP)</h2>
+            <h2>🌙 美联储观察</h2>
+            <div class="wild-quote">
+                "美联储的决策就像灯塔，为全球金融市场指明方向。理解美联储，就是理解全球经济的脉搏。"
+            </div>
             <div class="sep-grid">
                 <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank" class="sep-card">
-                    <div class="fed-logo">FED</div>
+                    <div class="fed-logo">🏦</div>
                     <h3>📅 FOMC会议日历</h3>
                     <p>美联储公开市场委员会会议安排</p>
                 </a>
@@ -624,18 +976,22 @@
                 </a>
             </div>
             <div class="tips">
-                <h4>💡 SEP说明</h4>
+                <h4>🌙 美联储解读</h4>
                 <p><strong>SEP（Summary of Economic Projections）：</strong>美联储每季度发布的经济预测摘要，包含GDP、通胀、失业率等关键经济指标的预测。</p>
                 <p><strong>发布频率：</strong>每年3月、6月、9月、12月的FOMC会议后发布</p>
+                <p><strong>小野提醒：</strong>美联储的每一个决策都会在全球市场掀起波澜，需要密切关注</p>
             </div>
         </div>
 
         <!-- 豆豆三部曲部分 -->
         <div id="books-section" class="section hidden">
-            <h2>📚 豆豆三部曲经典语录</h2>
+            <h2>🌙 哲学思考</h2>
+            <div class="wild-quote">
+                "当世界安静下来，我们才能真正听到内心的声音，思考人生的真谛。"
+            </div>
             
             <div class="book-section">
-                <h3>1. 《背叛》——人性与选择</h3>
+                <h3>🌙 1. 《背叛》——人性与选择</h3>
                 <div class="quote">
                     "人从根本上只面对两个问题：一是生存，得活下来；二是得回答生命价值的问题，让心有个安住。"
                 </div>
@@ -643,16 +999,16 @@
                     "背叛不是一种选择，而是一种必然。当你无法承受现实的重量时，背叛就发生了。"
                 </div>
                 <div class="tips">
-                    <h4>可实操的建议：</h4>
+                    <h4>🌙 思考：</h4>
                     <ul>
-                        <li><strong>认清自我：</strong>在做选择时，先问自己内心的真实需求</li>
+                        <li><strong>认清自我：</strong>先问自己内心的真实需求</li>
                         <li><strong>接受现实：</strong>学会接受不完美的世界和自己</li>
                     </ul>
                 </div>
             </div>
 
             <div class="book-section">
-                <h3>2. 《遥远的救世主》——商业与哲学</h3>
+                <h3>⭐ 2. 《遥远的救世主》——商业与哲学</h3>
                 <div class="quote">
                     "神即道，道法自然，如来。"
                 </div>
@@ -660,7 +1016,7 @@
                     "透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家、一个民族，任何一种命运归根到底都是那种文化属性的产物。"
                 </div>
                 <div class="tips">
-                    <h4>可实操的建议：</h4>
+                    <h4>🌙 思考：</h4>
                     <ul>
                         <li><strong>理解规律：</strong>在商业中，遵循"天道"和规律，顺势而为</li>
                         <li><strong>文化属性：</strong>分析问题时要看到背后的文化属性</li>
@@ -669,7 +1025,7 @@
             </div>
 
             <div class="book-section">
-                <h3>3. 《天幕红尘》——社会与个人</h3>
+                <h3>🌊 3. 《天幕红尘》——社会与个人</h3>
                 <div class="quote">
                     "见路不走，即见因果。见相非相，即见如来。"
                 </div>
@@ -677,7 +1033,7 @@
                     "人最难做到的是实事求是，妄念、贪念、杂念一大堆，就算想实事求是，你也不知道怎样实事求是。"
                 </div>
                 <div class="tips">
-                    <h4>可实操的建议：</h4>
+                    <h4>🌙 思考：</h4>
                     <ul>
                         <li><strong>实事求是：</strong>在做决策时，摒弃妄念和偏见，从实际出发</li>
                         <li><strong>见路不走：</strong>不要盲目跟随别人的路，找到适合自己的路径</li>
@@ -697,6 +1053,22 @@
             let tasks = JSON.parse(localStorage.getItem('tasks')) || {};
             let currentDate = new Date().toISOString().split('T')[0];
             let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+            
+            // 深夜模式功能
+            window.toggleDarkMode = function() {
+                const body = document.body;
+                const toggle = document.querySelector('.dark-mode-toggle');
+                
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    toggle.innerHTML = '🌙';
+                    localStorage.setItem('darkMode', 'false');
+                } else {
+                    body.classList.add('dark-mode');
+                    toggle.innerHTML = '☀️';
+                    localStorage.setItem('darkMode', 'true');
+                }
+            };
 
             // 显示/隐藏部分
             window.showSection = function(sectionName) {
@@ -949,6 +1321,15 @@
             // 页面加载时初始化
             document.addEventListener('DOMContentLoaded', function() {
                 try {
+                    // 初始化深夜模式
+                    const darkMode = localStorage.getItem('darkMode');
+                    const toggle = document.querySelector('.dark-mode-toggle');
+                    
+                    if (darkMode === 'true') {
+                        document.body.classList.add('dark-mode');
+                        if (toggle) toggle.innerHTML = '☀️';
+                    }
+                    
                     // 检查是否有保存的用户名
                     const savedUser = localStorage.getItem('currentUser');
                     if (savedUser) {
