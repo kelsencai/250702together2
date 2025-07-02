@@ -400,6 +400,37 @@
             color: #e0e0e0;
         }
 
+        /* 网易观察表格样式 */
+        .profit-growth-table table {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profit-growth-table th {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #222;
+            font-weight: 600;
+        }
+
+        body.dark-mode .profit-growth-table th {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #e0e0e0;
+        }
+
+        .profit-growth-table td {
+            transition: background 0.2s ease;
+        }
+
+        .profit-growth-table tr:hover td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .profit-growth-table tr:hover td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .investment-card:hover, .sep-card:hover, .value-investment:hover {
             box-shadow: 0 6px 24px rgba(0,0,0,0.10);
             transform: translateY(-2px);
@@ -754,6 +785,7 @@
         <button onclick="showSection('investment')">📊 关注指标</button>
         <button onclick="showSection('taco')">🌮 taco交易</button>
         <button onclick="showSection('byd')">🚗 比亚迪观察</button>
+        <button onclick="showSection('netease')">🎮 网易观察</button>
         <button onclick="showSection('value')">💰 利用羊群效应投资（净利润的4种变化是根本）</button>
         <button onclick="showSection('sofr')">💵 SOFR是一切</button>
         <button onclick="showSection('sep')">🏦 美联储SEP</button>
@@ -859,6 +891,89 @@
                 <h4>🔗 比亚迪数据</h4>
                 <p><a href="https://ngabbs.com/read.php?tid=44505298&rand=893" target="_blank">NGA论坛 - 比亚迪相关讨论</a></p>
                 <p><a href="https://www.xchuxing.com/article/154035" target="_blank">出行一客 - 比亚迪深度分析</a></p>
+            </div>
+        </div>
+
+        <!-- 网易观察部分 -->
+        <div id="netease-section" class="section hidden">
+            <h2>🎮 网易观察 - 美股NTES净利润增长率分析</h2>
+            <div class="wild-quote">
+                "网易作为中国互联网的先行者，在游戏、音乐、教育等领域都有深厚布局。观察其净利润变化，就是观察中国互联网行业的晴雨表。"
+            </div>
+            
+            <div class="tips">
+                <h4>📊 网易（NTES）净利润增长率数据</h4>
+                <div class="profit-growth-table">
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <thead>
+                            <tr style="background: rgba(255,255,255,0.1);">
+                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">年份</th>
+                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">净利润（亿元）</th>
+                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">同比增长率</th>
+                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">趋势分析</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2023年</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约180</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+15.2%</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务复苏，音乐业务增长</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2022年</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约156</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #dc3545;">-8.3%</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏版号限制影响</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2021年</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约170</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+12.7%</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情红利，游戏收入增长</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2020年</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约151</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+25.8%</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情宅经济推动</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2019年</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约120</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+18.5%</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务稳定增长</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h4>🌙 核心业务分析</h4>
+                <ul>
+                    <li><strong>游戏业务：</strong>占收入70%以上，是主要利润来源</li>
+                    <li><strong>音乐业务：</strong>网易云音乐持续增长，但仍在亏损阶段</li>
+                    <li><strong>教育业务：</strong>有道教育转型，专注AI教育</li>
+                    <li><strong>创新业务：</strong>严选、邮箱等业务稳定发展</li>
+                </ul>
+            </div>
+
+            <div class="tips">
+                <h4>💰 投资价值分析</h4>
+                <ul>
+                    <li><strong>优势：</strong>游戏业务护城河深，现金流稳定</li>
+                    <li><strong>风险：</strong>政策监管风险，游戏版号不确定性</li>
+                    <li><strong>估值：</strong>当前PE约15倍，处于历史低位</li>
+                    <li><strong>展望：</strong>2024年游戏版号常态化，业绩有望改善</li>
+                </ul>
+            </div>
+
+            <div class="tips">
+                <h4>🔗 相关数据链接</h4>
+                <p><a href="https://finance.yahoo.com/quote/NTES" target="_blank">Yahoo Finance - 网易股票实时数据</a></p>
+                <p><a href="https://www.sec.gov/edgar/browse/?CIK=0001117105" target="_blank">SEC文件 - 网易官方财报</a></p>
+                <p><a href="https://www.xueqiu.com/S/NTES" target="_blank">雪球 - 网易股票讨论区</a></p>
             </div>
         </div>
 
