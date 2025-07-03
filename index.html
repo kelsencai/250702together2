@@ -466,6 +466,10 @@
             background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
 
+        .sep-analysis {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
         /* 价值投资样式 */
         .value-investment {
             background: linear-gradient(135deg, #ff9a9e, #fecfef);
@@ -766,6 +770,154 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .stock-tabs {
+            display: flex;
+            gap: 12px;
+            margin: 18px 0 28px 0;
+            justify-content: center;
+        }
+
+        .stock-tab {
+            padding: 10px 28px;
+            border: none;
+            border-radius: 18px;
+            background: #f5f5f7;
+            color: #222;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .stock-tab.active, .stock-tab:hover {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .stock-content {margin-top: 0;}
+
+        /* 能力圈卡片美化 */
+        .mindmap-cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 24px;
+          justify-content: flex-start;
+        }
+        .mindmap-card {
+          background: linear-gradient(135deg, #f8fafc 80%, #e0e7ef 100%);
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+          padding: 24px 20px 12px 20px;
+          min-width: 320px;
+          max-width: 420px;
+          flex: 1 1 340px;
+          position: relative;
+          transition: box-shadow 0.2s;
+        }
+        .mindmap-card:hover {
+          box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+        }
+        .mindmap-card-header {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          user-select: none;
+          margin-bottom: 10px;
+        }
+        .mindmap-card-header .icon {
+          font-size: 1.7rem;
+          margin-right: 12px;
+        }
+        .mindmap-card-header .title {
+          font-size: 1.18rem;
+          font-weight: bold;
+          flex: 1;
+        }
+        .mindmap-card-header .arrow {
+          font-size: 1.2rem;
+          margin-left: 8px;
+          transition: transform 0.3s;
+        }
+        .mindmap-card.collapsed .mindmap-card-body {
+          display: none;
+        }
+        .mindmap-card.collapsed .arrow {
+          transform: rotate(-90deg);
+        }
+        .mindmap-card-body ul {
+          margin-left: 0;
+          padding-left: 1.2em;
+          font-size: 1.04rem;
+          line-height: 1.8;
+        }
+        .mindmap-card-body ul ul {
+          margin-top: 2px;
+          margin-bottom: 2px;
+          padding-left: 1.2em;
+          border-left: 2px solid #e0e7ef;
+        }
+        .mindmap-card[theme="value"] {
+          border-left: 6px solid #4f8cff;
+        }
+        .mindmap-card[theme="hold"] {
+          border-left: 6px solid #ffb300;
+        }
+        .mindmap-card[theme="speculate"] {
+          border-left: 6px solid #00b894;
+        }
+        .mindmap-card[theme="think"] {
+          border-left: 6px solid #e17055;
+        }
+        @media (max-width: 900px) {
+          .mindmap-cards { flex-direction: column; gap: 18px; }
+          .mindmap-card { max-width: 100%; min-width: 0; }
+        }
+        /* 高亮关键词 */
+        .hl-key { color: #e17055; font-weight: bold; background: #fff3e0; border-radius: 4px; padding: 0 4px; }
+        .hl-num { color: #00b894; font-weight: bold; background: #e0f7fa; border-radius: 4px; padding: 0 4px; }
+        .hl-company { color: #4f8cff; font-weight: bold; background: #e3f0ff; border-radius: 4px; padding: 0 4px; }
+        /* 卡片按钮 */
+        .mindmap-card-btns {
+          position: absolute;
+          top: 12px;
+          right: 18px;
+          display: flex;
+          gap: 8px;
+          z-index: 2;
+        }
+        .mindmap-card-btns button {
+          background: #fff;
+          border: 1px solid #e0e7ef;
+          border-radius: 6px;
+          padding: 3px 10px;
+          font-size: 0.98rem;
+          color: #4f8cff;
+          cursor: pointer;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+          transition: background 0.2s, color 0.2s;
+        }
+        .mindmap-card-btns button:hover {
+          background: #4f8cff;
+          color: #fff;
+        }
+        .mindmap-card-body ul > li { margin-bottom: 10px; }
+        .mindmap-second-header {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          font-size: 1.08rem;
+          font-weight: bold;
+          margin-bottom: 4px;
+          margin-top: 6px;
+          user-select: none;
+        }
+        .mindmap-second-header .icon { font-size: 1.2rem; margin-right: 7px; }
+        .mindmap-second-header .arrow { font-size: 1.1rem; margin-left: 6px; transition: transform 0.3s; }
+        .mindmap-second.collapsed .arrow { transform: rotate(-90deg); }
+        .mindmap-second.collapsed .mindmap-third { display: none; }
+        .mindmap-third { margin-left: 1.2em; margin-top: 2px; margin-bottom: 2px; border-left: 2px solid #e0e7ef; padding-left: 1em; font-size: 1.01rem; }
     </style>
 </head>
 <body>
@@ -776,19 +928,16 @@
     
     <div class="header">
         <h1>时刻提醒自己要低调</h1>
-        <p>时间管理 · 正念投资 · 关注指标 · 印钞机</p>
+        <p>时间管理 · 正念投资 </p>
         <div class="wild-character">"不做蠢事"</div>
     </div>
 
     <div class="nav">
         <button onclick="showSection('time')" class="active">⏰ 时间管理</button>
-        <button onclick="showSection('investment')">📊 关注指标</button>
+        <button onclick="showSection('investment')">📊 指标</button>
         <button onclick="showSection('taco')">🌮 taco交易</button>
-        <button onclick="showSection('byd')">🚗 比亚迪观察</button>
-        <button onclick="showSection('netease')">🎮 网易观察</button>
-        <button onclick="showSection('value')">💰 利用羊群效应投资（净利润的4种变化是根本）</button>
-        <button onclick="showSection('sofr')">💵 SOFR是一切</button>
-        <button onclick="showSection('sep')">🏦 美联储SEP</button>
+        <button onclick="showSection('circle')">🟢 我的能力圈</button>
+        <button onclick="showSection('mindmap')">🧠 能力圈设计</button>
         <button onclick="showSection('books')">📚 豆豆三部曲</button>
     </div>
 
@@ -797,7 +946,7 @@
         <div id="time-section" class="section">
             <h2>🌙 时间管理</h2>
             <div class="wild-quote">
-                "时间是最公平的，每个人都是24小时。但如何让每一分钟都变得有意义，这需要智慧。"
+                "如果只能选一个能力，就是时间管理。"
             </div>
             <div class="login">
                 <input type="text" id="usernameInput" placeholder="输入你的名字">
@@ -842,13 +991,17 @@
                     <p>恒生AH股溢价指数实时监控</p>
                 </a>
                 <div class="investment-card sofr-analysis" onclick="showSection('sofr')">
-                    <h3>💰 sofr是一切的根源。</h3>
+                    <h3>💰 sofr是一切的根源</h3>
                     <p>全球流动性锚定指标</p>
+                </div>
+                <div class="investment-card sep-analysis" onclick="showSection('sep')">
+                    <h3>🏦 美联储SEP</h3>
+                    <p>美联储经济预测摘要</p>
                 </div>
             </div>
             <div class="tips">
                 <h4>🌙 投资哲学</h4>
-                <p><strong>核心指标：</strong>波动率、股债收益比、AH溢价、SOFR</p>
+                <p><strong>核心指标：</strong>波动率、股债收益比、AH溢价、SOFR、美联储SEP</p>
                 <p><strong>小野提醒：</strong>每天盯住这些指标，少走弯路</p>
             </div>
         </div>
@@ -873,107 +1026,279 @@
             </div>
         </div>
 
-        <!-- 比亚迪观察部分 -->
-        <div id="byd-section" class="section hidden">
-            <h2>🚗 中国制造绕不开比亚迪</h2>
-            <div class="wild-quote">
-                "比亚迪不仅仅是一家汽车公司，更是中国制造业的缩影。在新能源的浪潮中，它承载着中国制造的希望与梦想。"
+        <!-- 我的能力圈部分 -->
+        <div id="circle-section" class="section hidden">
+            <h2>🟢 我的能力圈</h2>
+            <div class="stock-tabs">
+                <button class="stock-tab active" onclick="showStock('byd')">🚗 比亚迪</button>
+                <button class="stock-tab" onclick="showStock('kuaishou')">🎬 快手</button>
+                <button class="stock-tab" onclick="showStock('wuxi')">🧬 药明生物</button>
+                <button class="stock-tab" onclick="showStock('bilibili')">📺 B站</button>
+                <button class="stock-tab" onclick="showStock('netease')">🎮 网易</button>
             </div>
-            <div class="tips">
-                <h4>🌙 2025年目标展望</h4>
-                <ul>
-                    <li><strong>海外目标：</strong>80万辆</li>
-                    <li><strong>国内目标：</strong>470万辆</li>
-                    <li><strong>总目标：</strong>550万辆</li>
-                </ul>
-            </div>
-            <div class="tips">
-                <h4>🔗 比亚迪数据</h4>
-                <p><a href="https://ngabbs.com/read.php?tid=44505298&rand=893" target="_blank">NGA论坛 - 比亚迪相关讨论</a></p>
-                <p><a href="https://www.xchuxing.com/article/154035" target="_blank">出行一客 - 比亚迪深度分析</a></p>
-            </div>
-        </div>
-
-        <!-- 网易观察部分 -->
-        <div id="netease-section" class="section hidden">
-            <h2>🎮 网易观察 - 美股NTES净利润增长率分析</h2>
-            <div class="wild-quote">
-                "网易作为中国互联网的先行者，在游戏、音乐、教育等领域都有深厚布局。观察其净利润变化，就是观察中国互联网行业的晴雨表。"
-            </div>
-            
-            <div class="tips">
-                <h4>📊 网易（NTES）净利润增长率数据</h4>
-                <div class="profit-growth-table">
-                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                        <thead>
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">年份</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">净利润（亿元）</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">同比增长率</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">趋势分析</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2023年</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约180</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+15.2%</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务复苏，音乐业务增长</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2022年</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约156</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #dc3545;">-8.3%</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏版号限制影响</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2021年</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约170</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+12.7%</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情红利，游戏收入增长</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2020年</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约151</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+25.8%</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情宅经济推动</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2019年</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约120</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+18.5%</td>
-                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务稳定增长</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- 比亚迪子板块 -->
+            <div class="sub-section stock-content" id="stock-byd" style="display:block;">
+                <h3>🚗 比亚迪观察</h3>
+                <div class="wild-quote">
+                    "比亚迪不仅仅是一家汽车公司，更是中国制造业的缩影。在新能源的浪潮中，它承载着中国制造的希望与梦想。"
+                </div>
+                <div class="tips">
+                    <h4>🌙 2025年目标展望</h4>
+                    <ul>
+                        <li><strong>海外目标：</strong>80万辆</li>
+                        <li><strong>国内目标：</strong>470万辆</li>
+                        <li><strong>总目标：</strong>550万辆</li>
+                    </ul>
+                </div>
+                <div class="tips">
+                    <h4>🔗 比亚迪数据</h4>
+                    <p><a href="https://ngabbs.com/read.php?tid=44505298&rand=893" target="_blank">NGA论坛 - 比亚迪相关讨论</a></p>
+                    <p><a href="https://www.xchuxing.com/article/154035" target="_blank">出行一客 - 比亚迪深度分析</a></p>
                 </div>
             </div>
+            <!-- 快手子板块 -->
+            <div class="sub-section stock-content" id="stock-kuaishou" style="display:none;">
+                <h3>🎬 快手观察</h3>
+                <div class="wild-quote">
+                    "快手作为中国短视频和直播领域的领军者，见证了中国移动互联网流量红利的爆发与变现。它是中国内容生态和社交娱乐的重要平台。"
+                </div>
 
-            <div class="tips">
-                <h4>🌙 核心业务分析</h4>
-                <ul>
-                    <li><strong>游戏业务：</strong>占收入70%以上，是主要利润来源</li>
-                    <li><strong>音乐业务：</strong>网易云音乐持续增长，但仍在亏损阶段</li>
-                    <li><strong>教育业务：</strong>有道教育转型，专注AI教育</li>
-                    <li><strong>创新业务：</strong>严选、邮箱等业务稳定发展</li>
-                </ul>
+                <div class="tips">
+                    <h4>🎯 2025年业绩指引</h4>
+                    <ul>
+                        <li><strong>管理层目标：</strong>实现收入和利润双增长，持续提升商业化效率。</li>
+                        <li><strong>收入增长：</strong>预计2025年保持两位数增长，广告、电商和直播多元驱动。</li>
+                        <li><strong>商业化策略：</strong>加大广告变现，强化电商生态，提升直播货币化率。</li>
+                        <li><strong>用户增长/活跃度：</strong>日活用户稳定在3.6亿以上，提升用户粘性和时长。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>📈 核心业务分析</h4>
+                    <ul>
+                        <li><strong>行业地位：</strong>中国短视频和直播双寡头之一，内容生态丰富，社交属性强。</li>
+                        <li><strong>用户结构：</strong>下沉市场用户占比高，用户粘性强，日均使用时长超2小时。</li>
+                        <li><strong>内容生态：</strong>涵盖短视频、直播、电商、泛知识等多元内容。</li>
+                        <li><strong>创新能力：</strong>持续优化算法推荐，推动内容多样化和社区氛围。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>💰 收入结构分析</h4>
+                    <ul>
+                        <li><strong>广告业务：</strong>信息流广告为主，广告收入持续增长。</li>
+                        <li><strong>直播业务：</strong>直播打赏和虚拟礼物为主要收入来源。</li>
+                        <li><strong>电商业务：</strong>短视频+直播带货，GMV持续提升。</li>
+                        <li><strong>其他业务：</strong>包括本地生活、小游戏等新兴探索。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🚀 投资价值分析</h4>
+                    <ul>
+                        <li><strong>核心优势：</strong>用户基础庞大，内容生态完善，商业化空间大。</li>
+                        <li><strong>成长空间：</strong>广告、电商、直播多元驱动，海外市场拓展。</li>
+                        <li><strong>风险因素：</strong>监管政策、内容合规、用户增长放缓。</li>
+                        <li><strong>估值逻辑：</strong>高成长、高变现潜力，估值受行业景气和政策影响。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🔗 相关数据链接</h4>
+                    <p><a href="https://www.kuaishou.com/" target="_blank">快手官网</a></p>
+                    <p><a href="https://www.xueqiu.com/S/01024" target="_blank">雪球 - 快手股票讨论区</a></p>
+                    <p><a href="https://finance.yahoo.com/quote/1024.HK" target="_blank">Yahoo Finance - 快手股票数据</a></p>
+                </div>
             </div>
+            <!-- 药明生物子板块 -->
+            <div class="sub-section stock-content" id="stock-wuxi" style="display:none;">
+                <h3>🧬 药明生物观察</h3>
+                <div class="wild-quote">
+                    "药明生物不仅是中国生物医药CRO/CMO龙头，更是全球生物医药创新的重要推动者。它承载着中国医药产业走向世界的希望。"
+                </div>
 
-            <div class="tips">
-                <h4>💰 投资价值分析</h4>
-                <ul>
-                    <li><strong>优势：</strong>游戏业务护城河深，现金流稳定</li>
-                    <li><strong>风险：</strong>政策监管风险，游戏版号不确定性</li>
-                    <li><strong>估值：</strong>当前PE约15倍，处于历史低位</li>
-                    <li><strong>展望：</strong>2024年游戏版号常态化，业绩有望改善</li>
-                </ul>
+                <div class="tips">
+                    <h4>🎯 2025年业绩指引</h4>
+                    <ul>
+                        <li><strong>管理层目标：</strong>聚焦全球化布局，提升服务能力，保持高增长。</li>
+                        <li><strong>收入增长：</strong>预计2025年实现双位数增长，持续扩大海外市场份额。</li>
+                        <li><strong>商业化策略：</strong>强化一体化CRO+CDMO服务，深度绑定全球创新药企。</li>
+                        <li><strong>客户结构/产能扩张：</strong>加速产能扩建，客户涵盖全球Top20制药公司及创新生物药企。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>📈 核心业务分析</h4>
+                    <ul>
+                        <li><strong>行业地位：</strong>中国生物医药CRO/CMO龙头，全球领先的生物药研发与生产服务平台。</li>
+                        <li><strong>客户结构：</strong>客户高度国际化，创新药客户占比持续提升。</li>
+                        <li><strong>产能布局：</strong>国内外多地布局，产能持续扩张，保障全球交付能力。</li>
+                        <li><strong>创新能力：</strong>持续投入研发，推动工艺创新和自动化平台建设。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>💰 收入结构分析</h4>
+                    <ul>
+                        <li><strong>CRO业务：</strong>涵盖分子设计、工艺开发、临床前研究等全流程服务。</li>
+                        <li><strong>CMO/CDMO业务：</strong>为全球客户提供生物药临床和商业化生产服务。</li>
+                        <li><strong>海外/国内收入：</strong>海外收入占比超70%，欧美为主要市场。</li>
+                        <li><strong>其他业务：</strong>包括细胞治疗、基因治疗等新兴领域探索。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🚀 投资价值分析</h4>
+                    <ul>
+                        <li><strong>核心优势：</strong>一体化服务能力、全球化产能、客户粘性高。</li>
+                        <li><strong>成长空间：</strong>受益于全球生物药行业高景气，产能扩张带来业绩弹性。</li>
+                        <li><strong>风险因素：</strong>海外政策变化、地缘风险、单一大客户依赖。</li>
+                        <li><strong>估值逻辑：</strong>高成长、高壁垒，估值受全球创新药投资周期影响较大。</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🔗 相关数据链接</h4>
+                    <p><a href="https://www.wuxibiologics.com.cn/" target="_blank">药明生物官网</a></p>
+                    <p><a href="https://www.xueqiu.com/S/02269" target="_blank">雪球 - 药明生物股票讨论区</a></p>
+                    <p><a href="https://finance.yahoo.com/quote/2269.HK" target="_blank">Yahoo Finance - 药明生物股票数据</a></p>
+                </div>
             </div>
+            <!-- B站子板块 -->
+            <div class="sub-section stock-content" id="stock-bilibili" style="display:none;">
+                <h3>📺 B站观察</h3>
+                <div class="wild-quote">
+                    "B站不仅仅是一个视频平台，更是中国年轻文化的聚集地。在流量为王的时代，它承载着中国互联网的未来与希望。"
+                </div>
+                
+                <div class="tips">
+                    <h4>🎯 2025年业绩指引</h4>
+                    <ul>
+                        <li><strong>管理层目标：</strong></li>
+                        <li><strong>收入增长：</strong></li>
+                        <li><strong>商业化策略：</strong></li>
+                        <li><strong>用户增长：</strong></li>
+                    </ul>
+                </div>
 
-            <div class="tips">
-                <h4>🔗 相关数据链接</h4>
-                <p><a href="https://finance.yahoo.com/quote/NTES" target="_blank">Yahoo Finance - 网易股票实时数据</a></p>
-                <p><a href="https://www.sec.gov/edgar/browse/?CIK=0001117105" target="_blank">SEC文件 - 网易官方财报</a></p>
-                <p><a href="https://www.xueqiu.com/S/NTES" target="_blank">雪球 - 网易股票讨论区</a></p>
+                <div class="tips">
+                    <h4>📈 核心业务分析（基于附件内容提炼）</h4>
+                    <ul>
+                        <li><strong>流量为王：</strong>B站是流量型产品，核心是用户注意力，流量是未来变现的基础资源</li>
+                        <li><strong>用户数据：</strong>日活9000万，同比增速30%，仍处高速增长阶段</li>
+                        <li><strong>使用时长：</strong>日均96分钟，虽不及短视频但仍有较强粘性</li>
+                        <li><strong>用户结构：</strong>平均年龄23.5岁，一二线城市占比50%，精英化+低龄化特征</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>💰 收入结构分析</h4>
+                    <ul>
+                        <li><strong>广告业务：</strong>2023年50亿，广告密度仅5%（远低于行业8-15%标准），未来空间100-300亿</li>
+                        <li><strong>增值业务：</strong>会员+直播为主，会员2100万（增速6%），直播货币化率70元/日活</li>
+                        <li><strong>游戏业务：</strong>50亿收入，主要是代理运营，自研游戏占5%，未来增长有限</li>
+                        <li><strong>其他业务：</strong>电商等，2023年目标降低20-30%，逐步收缩</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🚀 投资价值分析</h4>
+                    <ul>
+                        <li><strong>核心优势：</strong>流量仍在高速增长（30%），是上市互联网公司中少有的高增长标的</li>
+                        <li><strong>商业化空间：</strong>广告密度低，商业化克制，未来有2-3倍增长空间</li>
+                        <li><strong>风险因素：</strong>用户结构单一，商业化可能影响用户体验</li>
+                        <li><strong>估值逻辑：</strong>流量型产品应先做流量再做收入，当前收入为零也不影响价值</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🔗 相关数据链接</h4>
+                    <p><a href="https://ir.bilibili.com/" target="_blank">B站投资者关系官网</a></p>
+                    <p><a href="https://www.xueqiu.com/S/BILI" target="_blank">雪球 - B站股票讨论区</a></p>
+                    <p><a href="https://finance.yahoo.com/quote/BILI" target="_blank">Yahoo Finance - B站股票数据</a></p>
+                </div>
+            </div>
+            <!-- 网易子板块 -->
+            <div class="sub-section stock-content" id="stock-netease" style="display:none;">
+                <h3>🎮 网易观察 - 美股NTES净利润增长率分析</h3>
+                <div class="wild-quote">
+                    "网易作为中国互联网的先行者，在游戏、音乐、教育等领域都有深厚布局。观察其净利润变化，就是观察中国互联网行业的晴雨表。"
+                </div>
+                
+                <div class="tips">
+                    <h4>📊 网易（NTES）净利润增长率数据</h4>
+                    <div class="profit-growth-table">
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.1);">
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">年份</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">净利润（亿元）</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">同比增长率</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">趋势分析</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2023年</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约180</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+15.2%</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务复苏，音乐业务增长</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2022年</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约156</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #dc3545;">-8.3%</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏版号限制影响</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2021年</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约170</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+12.7%</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情红利，游戏收入增长</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2020年</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约151</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+25.8%</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">疫情宅经济推动</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">2019年</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">约120</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center; color: #28a745;">+18.5%</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; text-align: center;">游戏业务稳定增长</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tips">
+                    <h4>🌙 核心业务分析</h4>
+                    <ul>
+                        <li><strong>游戏业务：</strong>占收入70%以上，是主要利润来源</li>
+                        <li><strong>音乐业务：</strong>网易云音乐持续增长，但仍在亏损阶段</li>
+                        <li><strong>教育业务：</strong>有道教育转型，专注AI教育</li>
+                        <li><strong>创新业务：</strong>严选、邮箱等业务稳定发展</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>💰 投资价值分析</h4>
+                    <ul>
+                        <li><strong>优势：</strong>游戏业务护城河深，现金流稳定</li>
+                        <li><strong>风险：</strong>政策监管风险，游戏版号不确定性</li>
+                        <li><strong>估值：</strong>当前PE约15倍，处于历史低位</li>
+                        <li><strong>展望：</strong>2024年游戏版号常态化，业绩有望改善</li>
+                    </ul>
+                </div>
+
+                <div class="tips">
+                    <h4>🔗 相关数据链接</h4>
+                    <p><a href="https://finance.yahoo.com/quote/NTES" target="_blank">Yahoo Finance - 网易股票实时数据</a></p>
+                    <p><a href="https://www.sec.gov/edgar/browse/?CIK=0001117105" target="_blank">SEC文件 - 网易官方财报</a></p>
+                    <p><a href="https://www.xueqiu.com/S/NTES" target="_blank">雪球 - 网易股票讨论区</a></p>
+                </div>
             </div>
         </div>
 
@@ -1103,6 +1428,176 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <!-- mindmap-section 能力圈设计窗口，只保留4个卡片和按钮 -->
+        <div id="mindmap-section" class="section hidden">
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;gap:10px;">
+            <button onclick="toggleAllMindmapCards(false)">全部收起</button>
+            <button onclick="toggleAllMindmapCards(true)">全部展开</button>
+          </div>
+          <div class="mindmap-cards">
+            <div class="mindmap-card" id="mindmap-card-1" theme="value">
+              <div class="mindmap-card-btns">
+                <button onclick="copyMindmapCard(1);event.stopPropagation();">复制内容</button>
+              </div>
+              <div class="mindmap-card-header" onclick="toggleMindmapCard(1)">
+                <span class="icon">💎</span>
+                <span class="title">价投（利用羊群）</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="mindmap-card-body">
+                <ul>
+                  <li id="mindmap-second-1-1" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(1,1);event.stopPropagation();">
+                      <span class="icon">🚗</span> <span class="hl-company">比亚迪</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>每年的净利润率是4种中的哪一种：<span class="hl-key">第四种：先快速，后平稳</span></li>
+                        <li>合理估值：每年评估，不设限，但是，如果过热，<span class="hl-key">坚决卖出</span></li>
+                        <li>目前市值：<span class="hl-num">1万亿人民币市值</span></li>
+                        <li>我的思考和关注<ul><li>子主题</li><li>子主题</li></ul></li>
+                        <li>定期关注<ul><li>每周海外销量</li><li>每周国内销量</li><li>每季度财报</li><li>海外各种新闻报道</li></ul></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="mindmap-second-1-2" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(1,2);event.stopPropagation();">
+                      <span class="icon">🎬</span> <span class="hl-company">快手</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>每年的净利润率是4种中的哪一种：<span class="hl-key">第四种：先快速，后平稳</span></li>
+                        <li>合理估值：每年评估，不设限，但是，如果过热，<span class="hl-key">坚决卖出</span></li>
+                        <li>目前估值：<span class="hl-num">16pe</span></li>
+                        <li>我的思考和关注</li>
+                        <li>定期关注<ul><li>海外情况，如巴西</li><li>每季度财报</li></ul></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="mindmap-second-1-3" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(1,3);event.stopPropagation();">
+                      <span class="icon">📺</span> <span class="hl-company">B站</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>每年的净利润率是4种中的哪一种：<span class="hl-key">第四种：先快速，后平稳</span></li>
+                        <li>合理估值：每年评估，不设限，但是，如果过热，<span class="hl-key">坚决卖出</span></li>
+                        <li>目前市值：<span class="hl-key">和美国类似公司差太远</span></li>
+                        <li>定期关注<ul><li>各项指标，如充电</li><li>每季度财报</li></ul></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="mindmap-second-1-4" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(1,4);event.stopPropagation();">
+                      <span class="icon">🧬</span> <span class="hl-company">药明</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>每年的净利润率是4种中的哪一种：<span class="hl-key">每年净利润率15%，平稳</span></li>
+                        <li>合理估值：每年评估，不设限，但是，如果过热，<span class="hl-key">坚决卖出</span></li>
+                        <li>目前估值：<span class="hl-num">25pe</span></li>
+                        <li>定期关注<ul><li>每季度财报</li></ul></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="mindmap-second-1-5" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(1,5);event.stopPropagation();">
+                      <span class="icon">👗</span> <span class="hl-company">江南布衣</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>每年的净利润率是4种中的哪一种：<span class="hl-key">第二种：不变</span><ul><li>合理：<span class="hl-num">12pe</span></li><li>买入标准：<span class="hl-num">8pe</span></li></ul></li>
+                        <li>合理估值：<span class="hl-num">至少12pe</span></li>
+                        <li>目前估值：<span class="hl-num">10.5pe</span></li>
+                        <li>定期关注</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mindmap-card" id="mindmap-card-2" theme="hold">
+              <div class="mindmap-card-btns">
+                <button onclick="copyMindmapCard(2);event.stopPropagation();">复制内容</button>
+              </div>
+              <div class="mindmap-card-header" onclick="toggleMindmapCard(2)">
+                <span class="icon">🧸</span>
+                <span class="title">不是价投，但是也长拿</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="mindmap-card-body">
+                <ul>
+                  <li id="mindmap-second-2-1" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(2,1);event.stopPropagation();">
+                      <span class="icon">🧸</span> <span class="hl-company">泡泡玛特</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>这个股票是我找的去未来的门票</li>
+                        <li>她就是一个无法出监狱人的代偿、以及平民收藏</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mindmap-card" id="mindmap-card-3" theme="speculate">
+              <div class="mindmap-card-btns">
+                <button onclick="copyMindmapCard(3);event.stopPropagation();">复制内容</button>
+              </div>
+              <div class="mindmap-card-header" onclick="toggleMindmapCard(3)">
+                <span class="icon">💹</span>
+                <span class="title">投机、套利</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="mindmap-card-body">
+                <ul>
+                  <li id="mindmap-second-3-1" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(3,1);event.stopPropagation();">
+                      <span class="icon">💹</span> <span class="hl-key">套利策略</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>1，每年港股闭市，闭市前买A股上市的港股etf，然后闭市那天，卖出。早上卖一半，中午一半<ul><li><span class="hl-num">2025年港股闭市但A股开市日期：4月18日、4月21日、7月1日、12月25日、12月26日（共5天）。</span></li></ul></li>
+                        <li>2，现金回购请求权</li>
+                        <li>3，海外基金的继续下跌+折价</li>
+                        <li>4，茅台pe20以下，或者<span class="hl-num">1350</span>以下。</li>
+                        <li>5，预计大卖的电影上市前</li>
+                        <li>6，当黄金替代美债，再次变成避险工具，也就是上涨周期时候<ul><li>中国<ul><li>买黄金etf<ul><li>开盘买，收盘卖。</li></ul></li></ul></li><li>美国，相反</li></ul></li>
+                        <li>7美国sofr心绞痛这个指标出现<ul><li>做多vix</li><li>做空股市</li></ul></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mindmap-card" id="mindmap-card-4" theme="think">
+              <div class="mindmap-card-btns">
+                <button onclick="copyMindmapCard(4);event.stopPropagation();">复制内容</button>
+              </div>
+              <div class="mindmap-card-header" onclick="toggleMindmapCard(4)">
+                <span class="icon">🧠</span>
+                <span class="title">其他思考</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="mindmap-card-body">
+                <ul>
+                  <li id="mindmap-second-4-1" class="mindmap-second collapsed">
+                    <div class="mindmap-second-header" onclick="toggleMindmapSecond(4,1);event.stopPropagation();">
+                      <span class="icon">🧠</span> <span class="hl-key">思考</span> <span class="arrow">▶</span>
+                    </div>
+                    <div class="mindmap-third">
+                      <ul>
+                        <li>1，我不想打败也打不败专业投资者。我的优势就是<span class="hl-key">资金的时间长</span>。</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 
@@ -1408,6 +1903,37 @@
                 }
             });
         })();
+
+        function showStock(stock) {
+            document.querySelectorAll('.stock-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.stock-content').forEach(div => div.style.display = 'none');
+            document.querySelector('.stock-tab[onclick*="' + stock + '"]').classList.add('active');
+            document.getElementById('stock-' + stock).style.display = 'block';
+        }
+
+        function toggleMindmapCard(idx) {
+          var card = document.getElementById('mindmap-card-' + idx);
+          if(card) card.classList.toggle('collapsed');
+        }
+        function toggleAllMindmapCards(expand) {
+          for(let i=1;i<=4;i++){
+            var card = document.getElementById('mindmap-card-'+i);
+            if(card) card.classList[expand?'remove':'add']('collapsed');
+          }
+        }
+        function copyMindmapCard(idx) {
+          var card = document.getElementById('mindmap-card-' + idx);
+          if(card) {
+            var text = card.querySelector('.mindmap-card-body').innerText;
+            navigator.clipboard.writeText(text).then(()=>{
+              alert('内容已复制到剪贴板！');
+            });
+          }
+        }
+        function toggleMindmapSecond(idx, subidx) {
+          var sec = document.getElementById('mindmap-second-' + idx + '-' + subidx);
+          if(sec) sec.classList.toggle('collapsed');
+        }
     </script>
 </body>
 </html> 
